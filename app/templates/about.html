@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Banner Section -->
+<section class="relative h-[40vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center">
+        <!-- Title -->
+        <h1 class="text-3xl md:text-4xl font-bold text-white text-center">ABOUT US<h1>
+
+                <!-- Breadcrumbs -->
+                <nav class="mt-4 text-white text-sm md:text-base flex items-center space-x-2">
+                    <a href="/" class="hover:text-pink hover:underline">Home</a>
+                    <span>&gt;</span>
+                    <span class="font-semibold">About</span>
+                </nav>
+    </div>
+</section>
+
+
+<!-- Section 1: Philosophy -->
+<section class="bg-lightpink py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Image on Left -->
+            <div class="relative group w-full max-w-lg mx-auto" data-aos="fade-right">
+                <!-- Default Image -->
+                <img src="/static/products/p2.jpg" alt="Alchemy"
+                    class="rounded-xl w-full h-auto object-cover transition-transform duration-700 ">
+
+
+                <!-- Hover Image Fade (Optional) -->
+                <img src="/static/products/p3.jpg" alt="Alchemy Hover"
+                    class="rounded-xl w-full h-auto object-cover absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+            </div>
+
+            <!-- Text on Right -->
+            <div class="flex flex-col justify-center" data-aos="fade-left">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-brown-800">
+                    The Art of <span class="text-pink">Modern Alchemy</span>
+                </h2>
+                <p class="text-brown-700 mb-4 text-lg md:text-xl text-justify">
+                    At AlizGlow, extraordinary skincare emerges when cutting-edge science meets artistic precision.
+                    Our formulations honour skin biology while delivering luxury beauty experiences.
+                </p>
+                <p class="text-brown-700 text-lg md:text-xl text-justify">
+                    Each product represents meticulous research, transforming molecular science into visible results and
+                    indulgent sensorial experiences.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Section 2: Master Chemists -->
+<section class="bg-lightpink py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12 text-brown-800">Master Chemists as Modern Alchemists</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-6">
+            <div class="flex flex-col items-center p-6 bg-lightpink/30 rounded-xl transition" data-aos="zoom-in">
+                <i class="fas fa-flask text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Precision Formulations</h3>
+                <p class="text-brown-700 text-center hidden md:block">Active nutrients penetrate deeply, working in
+                    harmony with your skin.</p>
+            </div>
+            <div class="flex flex-col items-center p-6 bg-lightpink/30 rounded-xl transition" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-vial text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Harmonious Blends</h3>
+                <p class="text-brown-700 text-center hidden md:block">Powerful infusions create silky textures and
+                    effective skincare rituals.</p>
+            </div>
+            <div class="flex flex-col items-center p-6 bg-lightpink/30 rounded-xl transition " data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-star text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Elegant Experience</h3>
+                <p class="text-brown-700 text-center hidden md:block">Transform your daily routine into a luxurious
+                    journey of transformation.</p>
+            </div>
+            <div class="flex flex-col items-center p-6 bg-lightpink/30 rounded-xl transition" data-aos="zoom-in" data-aos-delay="600">
+                <i class="fas fa-leaf text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Natural Ingredients</h3>
+                <p class="text-brown-700 text-center hidden md:block">
+                    Carefully selected botanicals nourish and protect your skin naturally.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: The Science Behind the Glow -->
+<section class="relative bg-cover bg-fixed bg-center py-24" style="background-image: url('/static/products/p2.jpg');">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 text-white text-center">
+        <h2 class="text-4xl font-bold mb-12">The Science Behind the Glow</h2>
+        <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+            <div class="bg-white/20 rounded-xl p-6">
+                <i class="fas fa-microscope text-3xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Molecular Precision</h3>
+                <p>Advanced peptides target specific concerns with unprecedented accuracy.</p>
+            </div>
+            <div class="bg-white/20 rounded-xl p-6">
+                <i class="fas fa-leaf text-3xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Biocompatible Actives</h3>
+                <p>Ingredients chosen for natural affinity with skin, ensuring optimal absorption.</p>
+            </div>
+            <div class="bg-white/20 rounded-xl p-6">
+                <i class="fas fa-sync-alt text-3xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Synergistic Formulation</h3>
+                <p>Each component balances others for exponential, not additive, benefits.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Luxurious Textures & Proven Results -->
+<section class="bg-lightpink py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-12 text-brown-800 text-center">Luxurious Textures, Proven Results</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center" data-aos="fade-up">
+            <div class="p-6 bg-white/30 rounded-xl hover:shadow-lg transition">
+                <i class="fas fa-spa text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Silken Serums</h3>
+                <p>Glide effortlessly across your skin for instant hydration and comfort.</p>
+            </div>
+            <div class="p-6 bg-white/30 rounded-xl hover:shadow-lg transition">
+                <i class="fas fa-gem text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Velvety Creams</h3>
+                <p>Melt into a protective barrier, locking in moisture and radiance.</p>
+            </div>
+            <div class="p-6 bg-white/30 rounded-xl hover:shadow-lg transition">
+                <i class="fas fa-water text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">Lightweight Oils</h3>
+                <p>Absorb without residue for silky smooth, nourished skin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Transformative Results -->
+<section class="bg-gray-50 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12 text-brown-800">Transformative Results</h2>
+        <p class="mb-12 text-brown-700 max-w-2xl mx-auto">
+            Scientifically-advanced formulations work in harmony with your skin's natural processes, revealing a radiant
+            complexion that reflects your inner vitality.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+            <div class="p-6 bg-lightpink rounded-xl">
+                <i class="fas fa-eye text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">92% Visible Improvement</h3>
+                <p>Users report noticeable enhancement within 14 days.</p>
+            </div>
+            <div class="p-6 bg-lightpink rounded-xl">
+                <i class="fas fa-hand-sparkles text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">87% Texture Refinement</h3>
+                <p>Smoother, more supple skin texture achieved.</p>
+            </div>
+            <div class="p-6 bg-lightpink rounded-xl">
+                <i class="fas fa-sun text-4xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-brown-800">94% Radiance Boost</h3>
+                <p>Natural luminosity and healthy glow restored.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=no">
+    <title>AlizGlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Android -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/images/icon.png">
+
+    <!-- Apple -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icon.png">
+
+    <!-- Windows / PWA -->
+    <meta name="msapplication-TileImage" content="/static/images/icon.png">
+
+    <!-- Mac (can reuse apple-touch-icon if needed) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/icon.png">
+
+    <!-- Share (not a system icon, but you can still link it) -->
+    <link rel="icon" type="image/png" href="/static/images/icon.png">
+
+    <!-- aos animation  -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pink': '#e65ba9',
+                        'lightpink': '#fde7f3',
+                        'navy': '#13214a',   // Aliz Glow Navy
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animated-border {
+            border-color: #ec4899;
+            /* starting color (pink-500) */
+            animation: borderColorChange 5s linear infinite;
+        }
+
+        @keyframes borderColorChange {
+            0% {
+                border-color: #ec4899;
+            }
+
+            /* pink */
+            25% {
+                border-color: #3b82f6;
+            }
+
+            /* blue */
+            50% {
+                border-color: #b910b0;
+            }
+
+            /* green */
+            75% {
+                border-color: #f59e0b;
+            }
+
+            /* amber */
+            100% {
+                border-color: #ec4899;
+            }
+
+            /* back to pink */
+        }
+    </style>
+
+</head>
+
+<body>
+    {% load static %}
+
+
+
+
+    <!-- Page Loader -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+        <img src="/static/images/loader.gif" alt="Loading..." class="w-32 h-auto">
+    </div>
+
+
+
+    <script>
+        // Hide loader and show content when page is fully loaded
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').classList.remove('hidden');
+        });
+    </script>
+
+
+
+    <!-- Floating Call & WhatsApp Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+
+        <!-- Call Button -->
+        <a href="tel:+911234567890"
+            class="bg-pink hover:bg-pink-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition animate-bounce">
+            <i class="fas fa-phone-alt text-xl"></i>
+        </a>
+
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/911234567890" target="_blank"
+            class="bg-pink hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+
+    </div>
+
+
+
+    <header class="fixed inset-x-0 mt-4 top-0 z-30 mx-auto w-3/4 
+         border-4 bg-white/80 py-1 rounded-3xl shadow backdrop-blur-lg animated-border overflow-hidden" data-aos="fade-down">
+
+        <div class="px-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex shrink-0" data-aos="fade-right" data-aos-delay="500">
+                    <a aria-current="page" class="flex items-center" href="{% url 'home' %}">
+                        <img class="h-12 w-auto" src="{% static 'images/logo.png' %}" alt="Website Logo">
+                        <p class="sr-only">Website Title</p>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle"
+                    class="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg id="menu-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex md:items-center md:gap-5">
+                    <a href="{% url 'home' %}"
+                        class="nav-link inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                    <a href="{% url 'about' %}"
+                        class="nav-link inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 hover:bg-gray-100">About</a>
+                    <a href="{% url 'products' %}"
+                        class="nav-link inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 hover:bg-gray-100">Products</a>
+                    <a href="{% url 'gallery' %}"
+                        class="nav-link inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 hover:bg-gray-100">Gallery</a>
+                    <a href="{% url 'contact' %}"
+                        class="nav-link inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 hover:bg-gray-100">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-menu" class="hidden flex-col space-y-3 mt-3 md:hidden">
+                <a href="{% url 'home' %}" class="block rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100">Home</a>
+                <a href="{% url 'about' %}" class="block rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100">About</a>
+                <a href="{% url 'products' %}"
+                    class="block rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100">Products</a>
+                <a href="{% url 'gallery' %}"
+                    class="block rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100">Gallery</a>
+                <a href="{% url 'contact' %}"
+                    class="block rounded-lg px-4 py-2 text-gray-900 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </header>
+
+
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class=" text-black py-12" style="background-color: pink;">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Contact -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <p class="font-medium">Dubai</p>
+                <p>contact@alizglow.com</p>
+                <p>+91 7996189999</p>
+            </div>
+
+            <!-- Quick Links (same as navbar links) -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="/" class="hover:underline">Home</a></li>
+                    <li><a href="/about" class="hover:underline">About Us</a></li>
+                    <li><a href="/products" class="hover:underline">Products</a></li>
+                    <li><a href="/products" class="hover:underline">Gallery</a></li>
+                    <li><a href="/contact" class="hover:underline">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- address -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Address</h4>
+                <p class="font-medium">AlizGlow</p>
+                <p>123 Beauty Street</p>
+                <p>Bengaluru, Karnataka, India</p>
+                <p>PIN - 560001</p>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class=" mt-10 pt-6 text-center bg-pink-500 text-black">
+            <img src="/static/images/logo.png" class="h-12 w-auto flex justify-center mx-auto" alt="">
+            <p class="text-sm mt-2">© {% now 'Y' %} AlizGlow | All Rights Reserved.</p>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-6 mt-4 text-black text-2xl">
+                <a href="#" aria-label="Facebook" class="hover:text-gray-600 transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram" class="hover:text-gray-600 transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="border-t border-black/30 mt-10 pt-6 text-center bg-pink-500 text-black">
+
+
+            <p class="text-sm mt-2">Designed and Developed by <a href="https://www.inspirezesttechnologies.com/"
+                    target="_blank" class="font-semibold hover:underline">Inspirezesttechnologies Pvt Ltd</a></p>
+        </div>
+
+
+
+    </footer>
+
+
+
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('rotate-90');
+        });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fydM7z9Vr4g9eXcUBYZlG4RkSxgRrpsX8VwQ1WlV7k1t6I4nRZt1mx24/mrDmhB1jlKwZB6O3lG8R0JQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Place this right after the AOS script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({
+                duration: 800,
+                easing: "ease-in-out",
+                once: true,
+                mirror: false,
+                offset: 50,
+                // disable: "mobile" // Optionally disable on mobile devices
+            });
+        });
+    </script>
+</body>
+
+</html>

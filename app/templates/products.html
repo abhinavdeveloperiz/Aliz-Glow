@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Banner Section -->
+<section class="relative h-[40vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center">
+        <!-- Title -->
+        <h1 class="text-3xl md:text-4xl font-bold text-white text-center">PRODUCTS</h1>
+
+        <!-- Breadcrumbs -->
+        <nav class="mt-4 text-white text-sm md:text-base flex items-center space-x-2">
+            <a href="/" class="hover:text-pink hover:underline">Home</a>
+            <span>&gt;</span>
+            <span class="font-semibold">Products</span>
+        </nav>
+    </div>
+</section>
+
+
+
+<section class="bg-lightpink py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <!-- Heading -->
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brown-800">
+             <span class="text-pink">AlizGlow </span>Skincare
+        </h2>
+        <p class="max-w-2xl mx-auto text-brown-700 mb-12">
+            Transform your daily ritual into a moment of luxury with AlizGlow.
+
+        </p>
+
+     
+
+
+        <!-- Product grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up">
+
+
+            <!-- Product -->
+            {% for p in products %}
+            <div class="bg-white/0 overflow-hidden flex flex-col hover:shadow-md rounded-lg">
+
+                <img src="{{ p.image.url }}" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-lg" />
+
+                <!-- Product Details -->
+                <div class="p-4 text-start ">
+                    <h4 class="text-sm font-semibold text-brown-800 mb-2">
+                        {{ p.name }}
+                    </h4>
+                    <a href="{% url 'product_details' p.id %}" class="text-pink font-medium hover:underline">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
