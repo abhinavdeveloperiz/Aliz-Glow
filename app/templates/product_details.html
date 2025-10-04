@@ -3,13 +3,13 @@
 {% block content %}
 
 <!-- Banner Section -->
-<section class="relative h-[40vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
-    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center">
-        <h1 class="text-3xl md:text-4xl font-bold text-white text-center uppercase">{{product.name}}</h1>
-        <nav class="mt-4 text-white text-sm md:text-base flex items-center space-x-2">
-            <a href="/" class="hover:text-pink hover:underline">Home</a>
+<section class="relative h-[40vh] md:h-[50vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
+    <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-white text-center uppercase tracking-wide">{{ product.name }}</h1>
+        <nav class="mt-3 text-white text-sm md:text-base flex items-center space-x-2">
+            <a href="/" class="hover:text-pink-500 hover:underline transition">Home</a>
             <span>&gt;</span>
-            <span class="font-semibold">Details</span>
+            <span class="font-semibold">{{ product.name|truncatechars:20 }}</span>
         </nav>
     </div>
 </section>
@@ -17,115 +17,74 @@
 <!-- Product Section -->
 <section class="bg-lightpink py-16">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
 
             <!-- Images Section -->
             <div>
-                <div class="relative mb-4">
+                <div class="relative mb-6">
                     <img id="mainImage" src="{{ product.image.url }}" alt="{{ product.name }}"
-                        class="w-full h-[400px] md:h-[500px] object-cover rounded-xl shadow-lg cursor-pointer"
-                        onclick="openLightbox(0)">
+                        class="w-full h-[350px] md:h-[500px] object-cover rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 </div>
 
                 <!-- Thumbnail Images -->
-                <div class="flex gap-4 overflow-x-auto">
+                <div class="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-pink-300 scrollbar-track-gray-200 p-1">
                     {% if product.image %}
-                    <img src="{{ product.image.url }}" onclick="updateMain(this, 0)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500">
+                    <img src="{{ product.image.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500 hover:scale-105 transition">
                     {% endif %}
                     {% if product.image2 %}
-                    <img src="{{ product.image2.url }}" onclick="updateMain(this, 1)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-pink-500 border border-gray-300">
+                    <img src="{{ product.image2.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500 hover:scale-105 transition">
                     {% endif %}
                     {% if product.image3 %}
-                    <img src="{{ product.image3.url }}" onclick="updateMain(this, 2)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-pink-500 border border-gray-300">
+                    <img src="{{ product.image3.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500 hover:scale-105 transition">
                     {% endif %}
                     {% if product.image4 %}
-                    <img src="{{ product.image4.url }}" onclick="updateMain(this, 3)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-pink-500 border border-gray-300">
+                    <img src="{{ product.image4.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500 hover:scale-105 transition">
                     {% endif %}
                     {% if product.image5 %}
-                    <img src="{{ product.image5.url }}" onclick="updateMain(this, 4)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-pink-500 border border-gray-300">
+                    <img src="{{ product.image5.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500 hover:scale-105 transition">
                     {% endif %}
                     {% if product.image6 %}
-                    <img src="{{ product.image6.url }}" onclick="updateMain(this, 5)"
-                        class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-pink-500 border border-gray-300">
+                    <img src="{{ product.image6.url }}" onclick="updateMain(this)"
+                        class="w-24 h-24 object-cover rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500 hover:scale-105 transition">
                     {% endif %}
                 </div>
             </div>
 
             <!-- Product Details -->
-            <div class="flex flex-col justify-start">
-                <h1 class="text-4xl font-bold mb-4 text-brown-800 uppercase">{{ product.name }}</h1>
+            <div class="flex flex-col justify-start space-y-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-brown-800 uppercase tracking-wide">{{ product.name }}</h1>
                 {% if product.price %}
-                <p class="text-2xl font-semibold text-pink-500 mb-6">AED {{ product.price }}</p>
+                <p class="text-3xl md:text-4xl font-extrabold text-pink-500">AED {{ product.price }}</p>
                 {% endif %}
-                <p class="text-brown-700 mb-6">{{ product.description }}</p>
+                <p class="text-brown-700 text-justify leading-relaxed">{{ product.description }}</p>
 
                 <!-- Contact Button -->
-                <a href="tel:"
-                    class="bg-pink text-white hover:bg-pink-200 hover:text-black px-6 py-3 rounded-lg font-semibold shadow-md transition w-max">
+                <a href="tel:" 
+                    class="w-[130px] bg-pink text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-pink-600 hover:scale-105 transition transform">
                     Contact
                 </a>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- Lightbox Modal -->
-<div id="lightbox" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-    <button class="absolute top-6 right-8 text-white text-3xl font-bold" onclick="closeLightbox()">&times;</button>
-    <button class="absolute left-6 text-white text-4xl font-bold" onclick="prevImage()">&#10094;</button>
-    <img id="lightboxImage" src="" alt="Image" class="max-w-[90%] max-h-[80vh] rounded-lg shadow-lg">
-    <button class="absolute right-6 text-white text-4xl font-bold" onclick="nextImage()">&#10095;</button>
-</div>
-
+<!-- Script for thumbnail switching -->
 <script>
-    const images = [
-        {% if product.image %}"{{ product.image.url }}", {% endif %}
-    {% if product.image2 %} "{{ product.image2.url }}", {% endif %}
-    {% if product.image3 %} "{{ product.image3.url }}", {% endif %}
-    {% if product.image4 %} "{{ product.image4.url }}", {% endif %}
-    {% if product.image5 %} "{{ product.image5.url }}", {% endif %}
-    {% if product.image6 %} "{{ product.image6.url }}", {% endif %}
-  ];
-
-    let currentIndex = 0;
-
-    function updateMain(el, index) {
-        const main = document.getElementById('mainImage');
-        main.src = el.src;
-        currentIndex = index;
+    function updateMain(el) {
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = el.src;
+        // Add a small fade effect
+        mainImage.classList.add('opacity-0');
+        setTimeout(() => {
+            mainImage.classList.remove('opacity-0');
+        }, 50);
     }
-
-    function openLightbox(index) {
-        currentIndex = index;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        lightbox.classList.remove('hidden');
-        lightboxImage.src = images[currentIndex];
-    }
-
-    function closeLightbox() {
-        document.getElementById('lightbox').classList.add('hidden');
-    }
-
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        document.getElementById('lightboxImage').src = images[currentIndex];
-    }
-
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        document.getElementById('lightboxImage').src = images[currentIndex];
-    }
-
-    // Close lightbox on background click
-    document.getElementById('lightbox').addEventListener('click', function (e) {
-        if (e.target === this) closeLightbox();
-    });
 </script>
 
 {% endblock %}
