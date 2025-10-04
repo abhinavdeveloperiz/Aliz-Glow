@@ -49,3 +49,4 @@ class HomeBanner(models.Model):
     class Meta:
         verbose_name = "Banner"
         verbose_name_plural = "Banners"
+

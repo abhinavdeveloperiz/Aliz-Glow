@@ -19,7 +19,7 @@ def about(request):
 
 
 def products(request):
-    products = Products.objects.all()
+    products = Products.objects.order_by("-id")
     context = {
         'products': products
         }
