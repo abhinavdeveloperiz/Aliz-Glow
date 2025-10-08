@@ -16,11 +16,11 @@
                         Discover the beauty within — premium skincare crafted with precision for your radiant glow.
                     </p>
                     <div class="flex gap-4">
-                        <a href="/products"
-                            class="bg-pink text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-pink-500 transition">
+                        <a href="/products" data-aos="fade-up"
+                            class="bg-pink text-white px-6 py-3 rounded-lg font-semibold shadow-md transition">
                             Products
                         </a>
-                        <a href="/about"
+                        <a href="/about" data-aos="fade-down"
                             class="border border-white text-white px-6 py-3 rounded-lg hover:bg-white/20 transition">
                             Learn More
                         </a>
@@ -71,7 +71,40 @@
 
 </div>
 
+<!-- Section 1: Philosophy -->
+<section class="bg-lightpink py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Image on Left -->
+            <a href="/products" class="relative group w-full max-w-lg mx-auto" data-aos="fade-right">
+                <!-- Default Image -->
+                <img src="/static/products/p2.jpg" alt="Alchemy"
+                    class="rounded-xl w-full h-auto object-cover transition-transform duration-700 ">
 
+
+                <!-- Hover Image Fade (Optional) -->
+                <img src="/static/products/p3.jpg" alt="Alchemy Hover"
+                    class="rounded-xl w-full h-auto object-cover absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+            </a>
+
+            <!-- Text on Right -->
+            <div class="flex flex-col justify-center" data-aos="fade-left">
+                <a href="/about" class="text-4xl md:text-5xl font-bold mb-6 text-brown-800">
+                    The Art of <span class="text-pink">Modern Alchemy</span>
+                </a>
+                <p class="text-brown-700 mb-4 text-lg md:text-xl text-justify">
+                    At AlizGlow, extraordinary skincare emerges when cutting-edge science meets artistic precision.
+                    Our formulations honour skin biology while delivering luxury beauty experiences.
+                </p>
+                <p class="text-brown-700 text-lg md:text-xl text-justify">
+                    Each product represents meticulous research, transforming molecular science into visible results and
+                    indulgent sensorial experiences.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section class="bg-lightpink py-20">
@@ -89,7 +122,7 @@
 
 
         <!-- Product grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
 
             <!-- Product -->
             {% for p in products %}
@@ -97,7 +130,7 @@
                 <div
                     class="bg-white/0 overflow-hidden flex flex-col hover:shadow-md rounded-lg transition-transform transform hover:scale-105">
 
-                    <img src="{{ p.image.url }}" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-lg" />
+                    <img data-aos="fade-right" src="{{ p.image.url }}" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-lg" />
 
                     <!-- Product Details -->
                     <div class="p-4 text-start">
@@ -185,8 +218,8 @@
         <p class="mb-12 text-lg md:text-xl">We carefully select premium ingredients to ensure your skin gets the love it
             deserves.</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
-            <div
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100"
                 class="bg-white/20 p-6 rounded-xl backdrop-blur-md hover:scale-105 transition flex flex-col items-center text-center">
                 <div class="w-16 h-16 flex items-center justify-center mb-4 text-pink-500 text-3xl">
                     <i class="fas fa-leaf"></i>
@@ -195,7 +228,7 @@
                 <p>Soothes and hydrates, promoting healthy skin naturally.</p>
             </div>
 
-            <div
+            <div data-aos="fade-up" data-aos-delay="200"
                 class="bg-white/20 p-6 rounded-xl backdrop-blur-md hover:scale-105 transition flex flex-col items-center text-center">
                 <div class="w-16 h-16 flex items-center justify-center mb-4 text-pink-500 text-3xl">
                     <i class="fas fa-capsules"></i>
@@ -204,7 +237,7 @@
                 <p>Brightens your complexion and reduces the signs of aging.</p>
             </div>
 
-            <div
+            <div data-aos="fade-up" data-aos-delay="300"
                 class="bg-white/20 p-6 rounded-xl backdrop-blur-md hover:scale-105 transition flex flex-col items-center text-center">
                 <div class="w-16 h-16 flex items-center justify-center mb-4 text-pink-500 text-3xl">
                     <i class="fas fa-seedling"></i>

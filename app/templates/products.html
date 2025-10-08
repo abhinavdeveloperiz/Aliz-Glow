@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- Banner Section -->
-<section class="relative h-[40vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
+<section class="relative h-[35vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
     <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center">
         <!-- Title -->
         <h1 class="text-3xl md:text-4xl font-bold text-white text-center">PRODUCTS</h1>
@@ -34,7 +34,7 @@
 
 
         <!-- Product grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
 
             <!-- Product -->
             {% for p in products %}
@@ -42,7 +42,7 @@
                 <div
                     class="bg-white/0 overflow-hidden flex flex-col hover:shadow-md rounded-lg transition-transform transform hover:scale-105">
 
-                    <img src="{{ p.image.url }}" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-lg" />
+                    <img src="{{ p.image.url }}" data-aos="fade-right" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-sm" />
 
                     <!-- Product Details -->
                     <div class="p-4 text-start">

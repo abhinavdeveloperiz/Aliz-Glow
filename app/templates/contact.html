@@ -2,13 +2,10 @@
 {% load static %}
 {% block content %}
 
-<!-- Banner Section -->
-<section class="relative h-[40vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
+<section class="relative h-[35vh] bg-cover bg-center" style="background-image: url('/static/products/p3.jpg');">
     <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center">
-        <!-- Title -->
         <h1 class="text-3xl md:text-4xl font-bold text-white text-center">CONTACT </h1>
 
-        <!-- Breadcrumbs -->
         <nav class="mt-4 text-white text-sm md:text-base flex items-center space-x-2">
             <a href="/" class="hover:text-pink hover:underline">Home</a>
             <span>&gt;</span>
@@ -21,10 +18,9 @@
 
 <section class="bg-lightpink py-20">
     <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-4xl font-bold text-brown-800 text-center mb-12">Contact Us</h2>
 
         <div class="grid md:grid-cols-2 gap-12">
-            <!-- Contact Form -->
+
             <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-right">
                 <form id="whatsappForm" class="space-y-4">
                     <div>
@@ -60,26 +56,22 @@
 
             <script>
                 document.getElementById('whatsappForm').addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent default form submission
+                    e.preventDefault();
 
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const subject = document.getElementById('subject').value;
                     const message = document.getElementById('message').value;
 
-                    // Compose WhatsApp message
                     let whatsappMessage = `Name: ${name}%0APhone: ${phone}%0ASubject: ${subject}%0AMessage: ${message}`;
 
-                    // Replace YOUR_NUMBER with your WhatsApp number in international format
                     let whatsappURL = `https://wa.me/919207773847?text=${whatsappMessage}`;
 
-                    // Open WhatsApp in a new tab (works on mobile and desktop)
                     window.open(whatsappURL, '_blank');
                 });
             </script>
 
 
-            <!-- Address / Info -->
             <div class="bg-white rounded-xl p-8 shadow-lg space-y-6" data-aos="fade-left">
                 <h3 class="text-2xl font-bold text-brown-800 mb-4">Our Address</h3>
                 <div class="flex items-start gap-4">
@@ -105,7 +97,6 @@
             </div>
         </div>
 
-        <!-- Google Map -->
         <div class="mt-12 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
             <iframe class="w-full h-96"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019807184267!2d-122.41941558468157!3d37.77492977975959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c1a1f2f7b%3A0x123456789abcdef0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1690000000000!5m2!1sen!2sus"
