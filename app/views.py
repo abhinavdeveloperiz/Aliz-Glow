@@ -45,3 +45,5 @@ def gallery(request):
         }
     return render(request, 'gallery.html',context)
 
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')

@@ -10,5 +10,6 @@ urlpatterns = [
     path('contact/',views.contact, name='contact'),
     path('gallery/',views.gallery, name='gallery'),
     path('product/<int:id>/',views.Product_details, name='product_details'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
 
 ]
