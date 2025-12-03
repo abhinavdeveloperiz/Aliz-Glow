@@ -23,7 +23,7 @@ def about(request):
 
 def products(request):
    
-    products = Products.objects.only("id", "name", "price", "image").order_by("-id")
+    products = Products.objects.only("id", "name", "price", "image","image2").order_by("-id")
 
     return render(request, "products.html", {
         "products": products

@@ -38,11 +38,20 @@
 
             <!-- Product -->
             {% for p in products %}
-            <a href="{% url 'product_details' p.id %}" class="block">
+            <a href="{% url 'product_details' p.id %}" class="block group">
                 <div
-                    class="bg-white/0 overflow-hidden flex flex-col hover:shadow-md rounded-lg transition-transform transform hover:scale-105">
+                    class="overflow-hidden flex flex-col hover:shadow-md rounded-lg transition-transform">
 
-                    <img src="{{ p.image.url }}" data-aos="fade-right" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-sm" />
+                    <!-- IMAGE SWAP -->
+                    <div class="relative w-full h-56">
+                        <!-- Default Image -->
+                        <img src="{{ p.image.url }}" alt="{{ p.name }}"
+                            class="absolute inset-0 w-full h-full object-cover rounded-t-sm transition-opacity duration-300 group-hover:opacity-0" />
+
+                        <!-- Hover Image -->
+                        <img src="{{ p.image2.url }}" alt="{{ p.name }} hover"
+                            class="absolute inset-0 w-full h-full object-cover rounded-t-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    </div>
 
                     <!-- Product Details -->
                     <div class="p-4 text-start">
@@ -56,6 +65,7 @@
                 </div>
             </a>
             {% endfor %}
+
         </div>
 
 
