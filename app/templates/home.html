@@ -3,9 +3,9 @@
 {% block content %}
 {% load static %}
 
-<div class="relative h-screen">
+<div class="relative">
     <!-- Carousel container -->
-    <div id="carousel" class="relative h-full overflow-hidden">
+    <div id="carousel" class="relative h-[60vh] md:h-[70vh] lg:h-[100vh] overflow-hidden">
         <!-- Slide 1 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
             <img src="{{banner.image1.url}}" alt="Banner 1" class="h-full w-full object-cover">
@@ -89,8 +89,8 @@
 
             <!-- Text on Right -->
             <div class="flex flex-col justify-center" data-aos="fade-left">
-                <a href="/about" class="text-4xl md:text-5xl font-bold mb-6 text-brown-800">
-                    The Art of <span class="text-pink">Modern Alchemy</span>
+                <a href="/about" class="text-3xl md:text-4xl font-bold mb-6 text-brown-800">
+                    The Art of Modern Alchemy
                 </a>
                 <p class="text-brown-700 mb-4 text-lg md:text-xl text-justify">
                     At Aliz Glow, extraordinary skincare emerges when cutting-edge science meets artistic precision.
@@ -109,46 +109,181 @@
 
 <section class="bg-lightpink py-20">
     <div class="max-w-7xl mx-auto px-4 text-center">
+
         <!-- Heading -->
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brown-800">
-            <span class="text-pink">Aliz Glow </span>Skincare
+            Aliz Glow Skincare
         </h2>
         <p class="max-w-2xl mx-auto text-brown-700 mb-12">
             Transform your daily ritual into a moment of luxury with Aliz Glow.
-
         </p>
 
+        <!-- Slider wrapper -->
+        <div class="relative">
+
+            <!-- Left Arrow -->
+            <button id="slide-left"
+                class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-pink shadow p-3 rounded-full z-10">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
 
 
+            <!-- Slider Container -->
+            <div id="product-slider"
+                class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar">
 
-        <!-- Product grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
+                {% for p in products %}
+                <a href="{% url 'product_details' p.id %}" class="min-w-[45%] md:min-w-[18%] snap-start">
 
-            <!-- Product -->
-            {% for p in products %}
-            <a href="{% url 'product_details' p.id %}" class="block">
-                <div
-                    class="bg-white/0 overflow-hidden flex flex-col hover:shadow-md rounded-lg transition-transform transform hover:scale-105">
+                    <div class="bg-white overflow-hidden flex flex-col hover:shadow-md rounded-lg 
+                transition-transform transform hover:scale-105 hover:border-pink border" data-aos="fade-up">
 
-                    <img data-aos="fade-right" src="{{ p.image.url }}" alt="{{ p.name }}" class="w-full h-56 object-cover rounded-t-lg" />
+                        
+                        <div class="relative w-full h-56">
+                            
+                            <img src="{{ p.image.url }}" alt="{{ p.name }}" class="absolute inset-0 w-full h-full object-cover rounded-t-lg 
+                        transition-opacity duration-300 opacity-100 hover:opacity-0" />
 
-                    <!-- Product Details -->
-                    <div class="p-4 text-start">
-                        <h4 class="text-sm font-semibold text-brown-800 mb-2">
-                            {{ p.name }}
-                        </h4>
-                        <span class="text-pink font-medium hover:underline">
-                            Learn More →
-                        </span>
+                         
+                            {% if p.image2 %}
+                            <img src="{{ p.image2.url }}" alt="{{ p.name }}" class="absolute inset-0 w-full h-full object-cover rounded-t-lg 
+                        transition-opacity duration-300 opacity-0 hover:opacity-100" />
+                            {% endif %}
+                        </div>
+
+                        <div class="p-4 text-start bg-lightpink">
+                            <h4 class="text-sm font-semibold text-brown-800 mb-2">
+                                {{ p.name }}
+                            </h4>
+                            <span class="text-pink font-medium hover:underline">
+                                Learn More →
+                            </span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            {% endfor %}
+                </a>
+
+                {% endfor %}
+            </div>
+
+            <!-- Right Arrow -->
+            <button id="slide-right"
+                class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-pink shadow p-3 rounded-full z-10">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+
         </div>
-
-
     </div>
 </section>
+
+<style>
+    /* Hide scrollbar for slider */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<script>
+    const slider = document.getElementById("product-slider");
+
+    document.getElementById("slide-left").onclick = () => {
+        slider.scrollBy({ left: -300, behavior: "smooth" });
+    };
+
+    document.getElementById("slide-right").onclick = () => {
+        slider.scrollBy({ left: 300, behavior: "smooth" });
+    };
+</script>
+
+
+
+
+
+
+
+
+
+
+<section class="py-16 bg-[#EFCBC7]">
+
+    <!-- Section Heading -->
+    <h2 class="text-center text-3xl md:text-4xl font-semibold text-[#4A3B32] mb-16">
+        Ultimate Day & Night Skin Essentials
+    </h2>
+
+    <!-- Product Grid -->
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 px-4">
+
+        <!-- CARD 1 -->
+        <div class="text-center mt-0 md:mt-12">
+            <a href="#">
+                <img src="https://i.pinimg.com/originals/28/97/2a/28972a4870cffccfa9de38912a96db69.gif"
+                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
+            </a>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">REJUVENATE</h3>
+            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
+                Know More →
+            </a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="text-center">
+            <a href="#">
+                <img src="https://images.squarespace-cdn.com/content/v1/606d1a7f4849715d980c8c67/157f6643-31ff-4fc9-ab2d-155e3bde46a9/resurfacing_peel_Teri_Lyn_Fisher_Los_Angeles_Cosmetic_Photographer.gif"
+                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
+            </a>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">SKINTILLATE</h3>
+            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
+                Know More →
+            </a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="text-center mt-0 md:mt-12">
+            <a href="#">
+                <img src="https://i.pinimg.com/originals/82/09/0d/82090dac4617d7b6d8bbd422f6c0b64a.gif"
+                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
+            </a>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">ILLUMINATE</h3>
+            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
+                Know More →
+            </a>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="text-center">
+            <a href="#">
+                <img src="https://i.pinimg.com/originals/1f/42/a7/1f42a77f4c1f32069cb35eb2c2d03a1c.gif"
+                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
+            </a>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">REVIVE</h3>
+            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
+                Know More →
+            </a>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="text-center mt-0 md:mt-12">
+            <a href="#">
+                <img src="https://i.pinimg.com/originals/86/3d/50/863d506ca15c973836ab31fbac800020.gif"
+                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
+            </a>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">ETERNELLE</h3>
+            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
+                Know More →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
 
 
 
@@ -156,7 +291,7 @@
 
 <section class="py-16 bg-lightpink">
     <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10">The <span class="text-pink">Aliz Glow</span> Promise</h2>
+        <h2 class="text-3xl font-bold text-center mb-10">The Aliz Glow Promise</h2>
 
         <!-- Icons Grid -->
         <div class="flex flex-wrap justify-center gap-8 py-4">
@@ -267,7 +402,8 @@
                         class="bg-white rounded-xl p-8 shadow-md hover:shadow-pink-300/50 transition transform hover:-translate-y-2 flex flex-col items-center">
                         <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png"
                             alt="Sarah L." class="w-16 h-16 rounded-full mb-4 object-cover border-2 border-pink-500">
-                        <p class="mb-4 text-brown-700">"Aliz Glow completely transformed my skincare routine. My skin has
+                        <p class="mb-4 text-brown-700">"Aliz Glow completely transformed my skincare routine. My skin
+                            has
                             never felt this radiant!"</p>
                         <h4 class="font-semibold text-pink-500">— Sarah L.</h4>
                     </div>
