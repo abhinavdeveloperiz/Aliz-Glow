@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Products, Gallery, HomeBanner
+from .models import Products, Gallery, HomeBanner,Gif_Section, AboutImage
 
 # --- Products Admin ---
 class ProductsAdmin(admin.ModelAdmin):
@@ -80,10 +80,57 @@ class HomeBannerAdmin(admin.ModelAdmin):
 
 
 
+# --- Gif Section Admin ---
+class GifSectionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'gif_tag')
+    search_fields = ('title',)
+    readonly_fields = ('gif_tag',)
+
+    def gif_tag(self, obj):
+        if obj.gif_image:
+            return format_html(
+                '<img src="{}" width="120" style="object-fit: cover;" />',
+                obj.gif_image.url
+            )
+        return "-"
+    gif_tag.short_description = 'GIF Preview'
+
+
+
+
+# --- About Image Admin ---
+class AboutImageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'image1_tag', 'image2_tag')
+    readonly_fields = ('image1_tag', 'image2_tag')
+
+    def image1_tag(self, obj):
+        if obj.image1:
+            return format_html(
+                '<img src="{}" width="120" style="object-fit: cover;" />',
+                obj.image1.url
+            )
+        return "-"
+    image1_tag.short_description = 'Image 1'
+
+    def image2_tag(self, obj):
+        if obj.image2:
+            return format_html(
+                '<img src="{}" width="120" style="object-fit: cover;" />',
+                obj.image2.url
+            )
+        return "-"
+    image2_tag.short_description = 'Image 2'
+
+
+
 # Registering models with admin
 admin.site.register(HomeBanner, HomeBannerAdmin)
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(Gif_Section, GifSectionAdmin)
+admin.site.register(AboutImage, AboutImageAdmin)
+
+
 
 admin.site.site_header = "AlizGlow Admin"
 admin.site.site_title = "AlizGlow Admin Portal"

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Products, Gallery, HomeBanner
+from .models import Products, Gallery, HomeBanner,Gif_Section, AboutImage
 
 
 def home(request):
@@ -10,14 +10,23 @@ def home(request):
         "id", "name", "price", "image","image2"
     ).order_by("-id")[:8]
 
+    gif_section= Gif_Section.objects.only("gif_image", "title").order_by("-id")
+
+
+    about_images = AboutImage.objects.only("image1", "image2").first()
+
+
     return render(request, "home.html", {
         "products": products,
         "banner": banner,
+        "gif": gif_section,
+        "about_images": about_images
     })
 
 
 def about(request):
-    return render(request, "about.html")
+    about_images = AboutImage.objects.only("image1", "image2").first()
+    return render(request, "about.html",{"about_image": about_images})
 
 
 

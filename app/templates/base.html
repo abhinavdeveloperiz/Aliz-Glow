@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <!-- Android -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/images/icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/images/logo.png">
 
     <!-- Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/logo.png">
 
     <!-- Windows / PWA -->
-    <meta name="msapplication-TileImage" content="/static/images/icon.png">
+    <meta name="msapplication-TileImage" content="/static/images/logo.png">
 
     <!-- Mac (can reuse apple-touch-icon if needed) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo.png">
 
     <!-- Share (not a system icon, but you can still link it) -->
-    <link rel="icon" type="image/png" href="/static/images/icon.png">
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
 
     <!-- aos animation  -->
 
@@ -31,15 +31,25 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+
+    <!-- fondawsome  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         // 'pink': '#EFCBC7', 
-                        'pink': '#D88984',             
-                        'lightpink': '#E9E8E8',   
-                        'navy': '#13214a',       
+                        'pink': '#D88984',
+                        'lightpink': '#E9E8E8',
+                        'navy': '#13214a',
                     }
 
                 }
@@ -47,6 +57,18 @@
         }
     </script>
     <style>
+        html,
+        body {
+            font-family: "Arimo", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        
+
+
+
         .animated-border {
             border-color: #ec4899;
             /* starting color (pink-500) */
@@ -90,20 +112,18 @@
 
 
 
-    <!-- Page Loader -->
-    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+    <!-- <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
         <img src="/static/images/loader.gif" alt="Loading..." class="w-32 h-auto">
     </div>
 
 
 
     <script>
-        // Hide loader and show content when page is fully loaded
         window.addEventListener('load', () => {
             document.getElementById('loader').style.display = 'none';
             document.getElementById('content').classList.remove('hidden');
         });
-    </script>
+    </script> -->
 
 
 
@@ -111,13 +131,13 @@
     <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
 
         <!-- Call Button -->
-        <a href="tel:+911234567890"
+        <a href="tel:+971522234861"
             class="bg-pink text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition animate-bounce">
             <i class="fas fa-phone-alt text-xl"></i>
         </a>
 
         <!-- WhatsApp Button -->
-        <a href="https://wa.me/911234567890" target="_blank"
+        <a href="https://wa.me/97145656031" target="_blank"
             class="bg-pink text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition">
             <i class="fab fa-whatsapp text-2xl"></i>
         </a>
@@ -189,8 +209,8 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Contact</h4>
                 <p class="font-medium">Dubai</p>
-                <p>contact@alizglow.com</p>
-                <p>+91 7996189999</p>
+                <p>info@alizglow.com</p>
+                <p>+971 522234861</p>
             </div>
 
             <!-- Quick Links -->
@@ -208,10 +228,11 @@
             <!-- Address -->
             <div>
                 <h4 class="text-lg font-semibold mb-4">Address</h4>
-                <p class="font-medium">Aliz Glow</p>
-                <p>123 Beauty Street</p>
-                <p>Bengaluru, Karnataka, India</p>
-                <p>PIN - 560001</p>
+                <p class="font-medium">Alizglow Cosmetic LLC <br>
+                    Al Quasis <br>
+                    Dubai <br>
+                    United Arab Emarites</p>
+
             </div>
         </div>
 

@@ -78,12 +78,12 @@
             <!-- Image on Left -->
             <a href="/products" class="relative group w-full max-w-lg mx-auto" data-aos="fade-right">
                 <!-- Default Image -->
-                <img src="/static/products/new1.jpg" alt="Alchemy"
+                <img src="{{about_images.image1.url}}" alt="Alchemy"
                     class="rounded-xl w-full h-[400px] object-cover transition-transform duration-700 ">
 
 
                 <!-- Hover Image Fade (Optional) -->
-                <img src="/static/products/new2.jpg" alt="Alchemy Hover"
+                <img src="{{about_images.image2.url}}" alt="Alchemy Hover"
                     class="rounded-xl w-full h-[400px] object-cover absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
             </a>
 
@@ -218,66 +218,21 @@
 
     <!-- Product Grid -->
     <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 px-4">
+        {% for f in gif %}
 
         <!-- CARD 1 -->
         <div class="text-center mt-0 md:mt-12" data-aos="zoom-in" data-aos-delay="0">
             <a href="#">
-                <img src="https://i.pinimg.com/originals/28/97/2a/28972a4870cffccfa9de38912a96db69.gif"
+                <img src="{{ f.gif_image.url }}"
                     class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
             </a>
-            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">REJUVENATE</h3>
+            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">{{ f.title }}</h3>
             <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
                 Know More →
             </a>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-            <a href="#">
-                <img src="https://images.squarespace-cdn.com/content/v1/606d1a7f4849715d980c8c67/157f6643-31ff-4fc9-ab2d-155e3bde46a9/resurfacing_peel_Teri_Lyn_Fisher_Los_Angeles_Cosmetic_Photographer.gif"
-                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
-            </a>
-            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">SKINTILLATE</h3>
-            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
-                Know More →
-            </a>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="text-center mt-0 md:mt-12" data-aos="zoom-in" data-aos-delay="200">
-            <a href="#">
-                <img src="https://i.pinimg.com/originals/82/09/0d/82090dac4617d7b6d8bbd422f6c0b64a.gif"
-                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
-            </a>
-            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">ILLUMINATE</h3>
-            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
-                Know More →
-            </a>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-            <a href="#">
-                <img src="https://i.pinimg.com/originals/1f/42/a7/1f42a77f4c1f32069cb35eb2c2d03a1c.gif"
-                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
-            </a>
-            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">REVIVE</h3>
-            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
-                Know More →
-            </a>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="text-center mt-0 md:mt-12" data-aos="zoom-in" data-aos-delay="400">
-            <a href="#">
-                <img src="https://i.pinimg.com/originals/86/3d/50/863d506ca15c973836ab31fbac800020.gif"
-                    class="w-full h-[300px] md:h-[420px] object-cover rounded-xl hover:rounded-3xl transition-all" />
-            </a>
-            <h3 class="mt-4 text-lg tracking-wide text-[#4A3B32]">ETERNELLE</h3>
-            <a href="#" class="mt-2 inline-flex items-center gap-2 text-[#4A3B32] underline">
-                Know More →
-            </a>
-        </div>
+        {% endfor %}
 
     </div>
 

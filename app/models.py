@@ -50,3 +50,25 @@ class HomeBanner(models.Model):
         verbose_name = "Banner"
         verbose_name_plural = "Banners"
 
+
+class Gif_Section(models.Model):
+
+    gif_image = models.ImageField(upload_to='gifs/')
+    title = models.CharField(max_length=100)
+
+    
+    class Meta:
+        verbose_name = "Gif Section"
+        verbose_name_plural = "Gif Sections"
+
+
+
+
+class AboutImage(models.Model):
+
+    image1 = models.ImageField(upload_to='about/')
+    image2 = models.ImageField(upload_to='about/')
+
+    class Meta:
+        verbose_name = "About Image"
+        verbose_name_plural = "About Images"
